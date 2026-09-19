@@ -2,69 +2,21 @@
 
 import { useState } from "react";
 
-const experiences = [
-  {
-    title: "Student Tutor",
-    company: "Helpmate Course",
-    type: "Part-time",
-    date: "Jul 2025 – Present",
-    image: "/experience/tutor.jpeg",
-    description:
-      "Provided academic tutoring for high school students in Mathematics, Physics, and Chemistry through private and semi-private learning sessions. Helped students understand school materials, solve practice problems, and improve their confidence in science subjects.",
-  },
-  {
-    title: "Freshmen Partner",
-    company: "BINUS University",
-    type: "Seasonal",
-    date: "Jul 2025 – Jul 2026",
-    image: "/experience/fp.jpg",
-    description:
-      "Mentored freshmen throughout their first academic year, helping them adapt to university life, understand academic systems, build confidence, and connect with campus communities and activities.",
-  },
-  {
-    title: "Freshmen Leader",
-    company: "BINUS University",
-    type: "Seasonal",
-    date: "Jul 2025 – Sep 2025",
-    image: "/experience/fl.jpg",
-    description:
-      "Supported new students during the First Year Program by guiding orientation activities, sharing important information, encouraging participation, and creating a welcoming environment.",
-  },
-  {
-    title: "Academic Tutor",
-    company: "Algo Bootcamp",
-    type: "Part-time",
-    date: "Jul 2025 – Sep 2025",
-    image: "/experience/academic-tutor.jpeg",
-    description:
-      "Provided online tutoring in Linear Algebra for 30+ incoming Computer Science students. Prepared structured learning materials, practice questions, and detailed solution explanations.",
-  },
-  {
-    title: "Social Media Marketing Intern",
-    company: "Universitas Multimedia Nusantara",
-    type: "Internship",
-    date: "Apr 2024 – May 2024",
-    image: "/experience/umn.jpg",
-    description:
-      "Created and edited social media content for @umninternational, including caption writing, content drafting, scheduling, and content ideas while maintaining the organization's brand voice.",
-  },
-];
-
 const projects = [
   {
     number: "01",
     title: "E-Commerce Customer Churn Dashboard",
-    category: "Data Analytics",
+    category: "DATA ANALYTICS",
     image: "/project/churn-dashboard.png",
     description:
-      "Interactive dashboard analyzing customer churn behavior and identifying patterns related to customer engagement and purchasing behavior.",
+      "An interactive dashboard analyzing customer churn behavior and identifying patterns related to engagement and purchasing activity.",
     tech: ["Power BI", "Python", "Data Analysis"],
     website: "#",
   },
   {
     number: "02",
     title: "Eco Event Finder",
-    category: "Web Development",
+    category: "WEB DEVELOPMENT",
     image: "/project/eco.png",
     description:
       "A web application for discovering and managing environmental events, built with React, Django REST Framework, and MySQL.",
@@ -74,59 +26,98 @@ const projects = [
   {
     number: "03",
     title: "MaterLife",
-    category: "AI & Machine Learning",
+    category: "AI & MACHINE LEARNING",
     image: "/project/materlife.png",
     description:
-      "An AI-based maternal health risk prediction website that provides low or high risk predictions based on health-related input data.",
+      "An AI-based maternal health risk prediction website that provides risk predictions based on health-related input data.",
     tech: ["Python", "Machine Learning", "Web App"],
     website: "https://mater-life.vercel.app",
   },
   {
     number: "04",
-    title: "E-Commerce Customer Churn Data Analyst Report Paper",
-    category: "Data Analytics",
+    title: "E-Commerce Customer Churn Report",
+    category: "DATA ANALYTICS",
     image: "/project/churn-dashboard.png",
     description:
-      "A data analytics report analyzing customer churn patterns, customer behavior, and factors related to customer engagement and purchasing activity.",
+      "A data analytics report exploring customer churn patterns, engagement behavior, and purchasing activity.",
     tech: ["Power BI", "Python", "Data Analysis"],
     website: "#",
   },
 ];
 
-const education = [
+const experiences = [
   {
-    degree: "Bachelor's Degree, Computer Science",
-    school: "BINUS University",
-    date: "Jun 2024 – Jun 2028",
+    year: "2025 — Present",
+    title: "Student Tutor",
+    company: "Helpmate Course",
+    type: "Part-time",
+    image: "/experience/tutor.jpeg",
     description:
-      "Undergraduate Computer Science student with interests in database technology, software development, data, and technology.",
+      "Provided academic tutoring for high school students in Mathematics, Physics, and Chemistry through private and semi-private learning sessions.",
   },
   {
-    degree: "High School Diploma, Science",
-    school: "Saint John's Catholic School",
-    date: "Jul 2021 – Jun 2024",
+    year: "2025 — 2026",
+    title: "Freshmen Partner",
+    company: "BINUS University",
+    type: "Seasonal",
+    image: "/experience/fp.jpg",
     description:
-      "Activities included Student Council and School Cup Fundraising and Consumption Crew.",
+      "Mentored freshmen throughout their first academic year, supporting their adaptation to university life, academic systems, and campus communities.",
+  },
+  {
+    year: "2025",
+    title: "Freshmen Leader",
+    company: "BINUS University",
+    type: "Seasonal",
+    image: "/experience/fl.jpg",
+    description:
+      "Supported new students during the First Year Program by guiding orientation activities, sharing information, and encouraging participation.",
+  },
+  {
+    year: "2025",
+    title: "Academic Tutor",
+    company: "Algo Bootcamp",
+    type: "Part-time",
+    image: "/experience/academic-tutor.jpeg",
+    description:
+      "Provided online Linear Algebra tutoring for 30+ incoming Computer Science students and prepared learning materials and practice questions.",
+  },
+  {
+    year: "2024",
+    title: "Social Media Marketing Intern",
+    company: "Universitas Multimedia Nusantara",
+    type: "Internship",
+    image: "/experience/umn.jpg",
+    description:
+      "Created and edited social media content for @umninternational, including captions, content drafts, scheduling, and content ideas.",
   },
 ];
 
-const skillGroups = [
+const skills = [
   {
-    title: "Programming & Database",
-    skills: ["Python", "Java", "SQL", "MySQL"],
+    category: "PROGRAMMING",
+    items: ["Python", "Java", "SQL"],
   },
   {
-    title: "Data & AI",
-    skills: ["Data Analysis", "Machine Learning", "Power BI", "Pandas"],
+    category: "DATABASE",
+    items: ["MySQL", "Database Technology"],
   },
   {
-    title: "Web Development & Tools",
-    skills: ["React", "Tailwind CSS", "Django", "Git", "GitHub"],
+    category: "DATA & AI",
+    items: ["Data Analysis", "Machine Learning", "Pandas", "Power BI"],
+  },
+  {
+    category: "WEB & TOOLS",
+    items: ["React", "Django", "Tailwind CSS", "Git", "GitHub"],
   },
 ];
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeExperience, setActiveExperience] = useState(0);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <main className={darkMode ? "dark-mode" : ""}>
@@ -134,222 +125,197 @@ export default function Home() {
 
       <nav className="navbar">
         <div className="nav-container">
-          <a href="#home" className="logo">
-            <span className="logo-circle">CS</span>
-            <span>Seraphine Michelle Atmadjie</span>
+          <a href="#home" className="logo" onClick={closeMenu}>
+            <span className="logo-mark">S.</span>
+            <span className="logo-name">Seraphine Michelle Atmadjie</span>
           </a>
 
-          <div className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+          <div className={`nav-links ${menuOpen ? "mobile-open" : ""}`}>
+            <a href="#home" onClick={closeMenu}>
+              Home
+            </a>
+            <a href="#about" onClick={closeMenu}>
+              About
+            </a>
+            <a href="#work" onClick={closeMenu}>
+              Work
+            </a>
+            <a href="#experience" onClick={closeMenu}>
+              Experience
+            </a>
+            <a href="#education" onClick={closeMenu}>
+              Education
+            </a>
+            <a href="#contact" onClick={closeMenu}>
+              Contact
+            </a>
           </div>
 
-          <button
-            className="theme-toggle"
-            onClick={() => setDarkMode(!darkMode)}
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? "☀" : "☾"}
-          </button>
+          <div className="nav-actions">
+            <button
+              className="theme-toggle"
+              onClick={() => setDarkMode(!darkMode)}
+              aria-label="Toggle theme"
+            >
+              {darkMode ? "☼" : "☾"}
+            </button>
+
+            <button
+              className="menu-toggle"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? "×" : "☰"}
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* ================= HERO ================= */}
 
-      <section id="home" className="hero section">
+      <section id="home" className="hero">
         <div className="hero-container">
-          <div className="hero-content">
-            <p className="eyebrow">HELLO, I&apos;M</p>
+          <div className="hero-copy">
+            <div className="hero-label">
+              <span className="status-dot"></span>
+              COMPUTER SCIENCE STUDENT
+            </div>
 
             <h1>
-              Seraphine Michelle Atmadjie<span>.</span>
+              Seraphine
+              <br />
+              Michelle
+              <span> Atmadjie.</span>
             </h1>
 
-            <h2>Computer Science Student</h2>
-
-            <p className="hero-description">
-              An undergraduate Computer Science student at BINUS University
-              interested in database technology, software development, data,
-              and technology.
+            <p className="hero-intro">
+              Building with data, code, and curiosity. Currently exploring
+              database technology, software development, and data analytics.
             </p>
 
-            <div className="hero-buttons">
-              <a href="#experience" className="btn primary-btn">
-                View My Experience
+            <div className="hero-links">
+              <a href="#work" className="text-link primary-link">
+                Explore my work <span>↗</span>
               </a>
 
-              <a href="#contact" className="btn secondary-btn">
-                Contact Me
+              <a href="#about" className="text-link">
+                More about me <span>↓</span>
               </a>
             </div>
           </div>
 
           <div className="hero-visual">
-            <div className="photo-decoration circle-decoration"></div>
+            <div className="hero-image-wrap">
+              <div className="hero-image-bg"></div>
 
-            <div className="photo-decoration square-decoration"></div>
-
-            <div className="profile-frame">
               <img
                 src="/profile.jpg"
                 alt="Seraphine Michelle Atmadjie"
-                className="profile-image"
+                className="hero-image"
               />
+
+              <div className="hero-caption">
+                <span>BASED IN</span>
+                <strong>INDONESIA</strong>
+              </div>
             </div>
 
-            <div className="small-dot"></div>
+            <div className="hero-decoration hero-decoration-one"></div>
+            <div className="hero-decoration hero-decoration-two"></div>
           </div>
+        </div>
+
+        <div className="hero-bottom">
+          <span>SCROLL TO EXPLORE</span>
+          <div className="scroll-line"></div>
+          <span>01 — 06</span>
         </div>
       </section>
 
       {/* ================= ABOUT ================= */}
 
       <section id="about" className="section about-section">
-        <div className="section-heading">
-          <p className="eyebrow">GET TO KNOW ME</p>
-
-          <h2>About Me</h2>
+        <div className="section-topline">
+          <span>01</span>
+          <span>ABOUT</span>
         </div>
 
-        <div className="about-container">
-          <div className="about-image-wrapper">
-            <div className="about-image">
-              <img
-                src="/profile.jpg"
-                alt="Seraphine Michelle Atmadjie"
-              />
-            </div>
+        <div className="about-layout">
+          <div className="section-title-block">
+            <p className="small-label">A LITTLE ABOUT ME</p>
+            <h2>
+              Curious by nature,
+              <br />
+              <em>technical by choice.</em>
+            </h2>
           </div>
 
-          <div className="about-content">
-            <p>
-              Hi! I&apos;m a Computer Science student at BINUS University
-              with an interest in database technology, software development,
-              data, and technology.
+          <div className="about-copy">
+            <p className="large-copy">
+              I&apos;m a Computer Science student at BINUS University with an
+              interest in database technology, software development, data, and
+              technology.
             </p>
 
             <p>
-              Throughout my academic journey, I have worked on various
-              projects while also gaining experience through tutoring,
-              mentoring, and organizational activities.
+              Throughout my academic journey, I&apos;ve worked on projects
+              across data analytics, machine learning, and web development,
+              while also gaining experience through tutoring, mentoring, and
+              organizational activities.
             </p>
 
             <p>
-              I enjoy learning new technologies, solving problems, and
-              applying what I learn to real-world projects.
+              I enjoy learning new technologies, solving problems, and turning
+              ideas into practical projects.
             </p>
 
-            <div className="about-highlights">
+            <div className="about-meta">
               <div>
+                <span>EDUCATION</span>
+                <strong>BINUS University</strong>
+              </div>
+
+              <div>
+                <span>FIELD</span>
                 <strong>Computer Science</strong>
-
-                <span>Academic Background</span>
               </div>
 
               <div>
-                <strong>Database & Data</strong>
-
-                <span>Areas of Interest</span>
-              </div>
-
-              <div>
-                <strong>Continuous Learning</strong>
-
-                <span>Personal Growth</span>
+                <span>INTERESTS</span>
+                <strong>Database · Data · Software</strong>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= EXPERIENCE ================= */}
+      {/* ================= WORK / ARMORY ================= */}
 
-      <section id="experience" className="section experience-section">
-        <div className="section-heading">
-          <p className="eyebrow">MY JOURNEY</p>
+      <section id="work" className="section work-section">
+        <div className="section-topline">
+          <span>02</span>
+          <span>SELECTED WORK</span>
+        </div>
 
-          <h2>Experience</h2>
+        <div className="work-heading">
+          <div>
+            <p className="small-label">PROJECT ARCHIVE</p>
+            <h2>Things I&apos;ve built.</h2>
+          </div>
 
           <p>
-            Experiences that have helped me grow academically,
-            professionally, and personally.
+            A collection of projects from my Computer Science journey,
+            spanning data analytics, machine learning, and web development.
           </p>
         </div>
 
-        <div className="experience-grid">
-          {experiences.map((experience, index) => (
-            <div
-              className="experience-card"
-              key={`${experience.title}-${experience.company}`}
-            >
-              <img
-                src={experience.image}
-                alt={experience.title}
-                className="experience-image"
-              />
-
-              <div className="experience-top">
-                <div className="experience-icon">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-
-                <span className="experience-type">
-                  {experience.type}
-                </span>
-              </div>
-
-              <h3>{experience.title}</h3>
-
-              <p className="company">{experience.company}</p>
-
-              <p className="date">{experience.date}</p>
-
-              <p className="experience-description">
-                {experience.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ================= PROJECTS ================= */}
-
-      <section id="projects" className="section projects-section">
-        <div className="section-heading">
-          <p className="eyebrow">WHAT I&apos;VE BUILT</p>
-
-          <h2>Projects</h2>
-
-          <p>
-            A selection of projects from my Computer Science journey.
-          </p>
-        </div>
-
-        <div className="projects-grid">
+        <div className="project-list">
           {projects.map((project) => (
-            <div
-              className="project-card"
-              key={project.number}
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="project-image"
-              />
+            <article className="project-row" key={project.number}>
+              <div className="project-index">{project.number}</div>
 
-              <div className="project-content">
-                <div className="project-number">
-                  {project.number}
-                </div>
-
-                <p className="project-category">
-                  {project.category}
-                </p>
+              <div className="project-info">
+                <p className="project-category">{project.category}</p>
 
                 <h3>{project.title}</h3>
 
@@ -357,11 +323,9 @@ export default function Home() {
                   {project.description}
                 </p>
 
-                <div className="tag-container">
-                  {project.tech.map((tech) => (
-                    <span className="tag" key={tech}>
-                      {tech}
-                    </span>
+                <div className="project-tech">
+                  {project.tech.map((item) => (
+                    <span key={item}>{item}</span>
                   ))}
                 </div>
 
@@ -370,80 +334,178 @@ export default function Home() {
                     href={project.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="project-link"
+                    className="project-arrow"
                   >
-                    View Website →
+                    View project <span>↗</span>
                   </a>
                 ) : (
-                  <span className="project-link disabled-link">
-                    Website Coming Soon
+                  <span className="project-arrow muted">
+                    Project archive <span>→</span>
                   </span>
                 )}
               </div>
-            </div>
+
+              <div className="project-preview">
+                <img src={project.image} alt={project.title} />
+              </div>
+            </article>
           ))}
+        </div>
+      </section>
+
+      {/* ================= EXPERIENCE ================= */}
+
+      <section id="experience" className="section experience-section">
+        <div className="section-topline">
+          <span>03</span>
+          <span>EXPERIENCE</span>
+        </div>
+
+        <div className="experience-layout">
+          <div className="experience-intro">
+            <p className="small-label">MY JOURNEY</p>
+
+            <h2>
+              Learning through
+              <br />
+              <em>experience.</em>
+            </h2>
+
+            <p>
+              Experiences that have helped me grow academically,
+              professionally, and personally.
+            </p>
+
+            <div className="experience-preview">
+              <img
+                src={experiences[activeExperience].image}
+                alt={experiences[activeExperience].title}
+              />
+
+              <div className="preview-overlay">
+                <span>SELECTED</span>
+                <strong>
+                  {String(activeExperience + 1).padStart(2, "0")}
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div className="experience-list">
+            {experiences.map((experience, index) => (
+              <div
+                className={`experience-item ${
+                  activeExperience === index ? "active" : ""
+                }`}
+                key={`${experience.title}-${experience.company}`}
+                onMouseEnter={() => setActiveExperience(index)}
+              >
+                <div className="experience-year">
+                  {experience.year}
+                </div>
+
+                <div className="experience-main">
+                  <div className="experience-title-line">
+                    <h3>{experience.title}</h3>
+                    <span>{experience.type}</span>
+                  </div>
+
+                  <p className="experience-company">
+                    {experience.company}
+                  </p>
+
+                  <p className="experience-description">
+                    {experience.description}
+                  </p>
+                </div>
+
+                <div className="experience-number">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ================= EDUCATION ================= */}
 
       <section id="education" className="section education-section">
-        <div className="section-heading">
-          <p className="eyebrow">MY BACKGROUND</p>
-
-          <h2>Education</h2>
+        <div className="section-topline">
+          <span>04</span>
+          <span>EDUCATION</span>
         </div>
 
-        <div className="education-grid">
-          {education.map((item, index) => (
-            <div
-              className="education-card"
-              key={item.school}
-            >
-              <div className="education-icon">
-                {String(index + 1).padStart(2, "0")}
-              </div>
+        <div className="education-heading">
+          <p className="small-label">ACADEMIC BACKGROUND</p>
+          <h2>Where I&apos;ve learned.</h2>
+        </div>
 
-              <div>
-                <h3>{item.school}</h3>
+        <div className="education-list">
+          <div className="education-item">
+            <div className="education-number">01</div>
 
-                <h4>{item.degree}</h4>
-
-                <p className="education-date">
-                  {item.date}
-                </p>
-
-                <p>{item.description}</p>
-              </div>
+            <div className="education-main">
+              <span>JUN 2024 — JUN 2028</span>
+              <h3>BINUS University</h3>
+              <h4>Bachelor&apos;s Degree, Computer Science</h4>
+              <p>
+                Undergraduate Computer Science student with interests in
+                database technology, software development, data, and
+                technology.
+              </p>
             </div>
-          ))}
+
+            <div className="education-side">UNDERGRADUATE</div>
+          </div>
+
+          <div className="education-item">
+            <div className="education-number">02</div>
+
+            <div className="education-main">
+              <span>JUL 2021 — JUN 2024</span>
+              <h3>Saint John&apos;s Catholic School</h3>
+              <h4>High School Diploma, Science</h4>
+              <p>
+                Activities included Student Council and School Cup Fundraising
+                and Consumption Crew.
+              </p>
+            </div>
+
+            <div className="education-side">HIGH SCHOOL</div>
+          </div>
         </div>
       </section>
 
       {/* ================= SKILLS ================= */}
 
-      <section id="skills" className="section skills-section">
-        <div className="section-heading">
-          <p className="eyebrow">TOOLS & TECHNOLOGIES</p>
-
-          <h2>Skills</h2>
-
-          <p>
-            Technologies and tools I use throughout my Computer Science
-            projects and learning journey.
-          </p>
+      <section className="section skills-section">
+        <div className="section-topline">
+          <span>05</span>
+          <span>SKILLS & TOOLS</span>
         </div>
 
-        <div className="skills-groups">
-          {skillGroups.map((group) => (
-            <div className="skill-group" key={group.title}>
-              <h3>{group.title}</h3>
+        <div className="skills-heading">
+          <p className="small-label">WHAT I WORK WITH</p>
+          <h2>
+            Tools are just tools.
+            <br />
+            <em>Curiosity does the work.</em>
+          </h2>
+        </div>
 
-              <div className="skills-container">
-                {group.skills.map((skill) => (
-                  <span className="skill-item" key={skill}>
-                    {skill}
-                  </span>
+        <div className="skills-grid">
+          {skills.map((group, index) => (
+            <div className="skill-block" key={group.category}>
+              <div className="skill-number">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+
+              <h3>{group.category}</h3>
+
+              <div className="skill-tags">
+                {group.items.map((skill) => (
+                  <span key={skill}>{skill}</span>
                 ))}
               </div>
             </div>
@@ -453,53 +515,64 @@ export default function Home() {
 
       {/* ================= CONTACT ================= */}
 
-      <section id="contact" className="section contact-section">
-        <div className="contact-card">
-          <p className="eyebrow">LET&apos;S CONNECT</p>
-
-          <h2>Let&apos;s build something together.</h2>
-
-          <p>
-            Feel free to reach out if you would like to connect,
-            collaborate, or discuss technology and projects.
-          </p>
-
-          <div className="contact-buttons">
-            <a
-              href="mailto:seraphinemichellee@gmail.com"
-              className="btn primary-btn"
-            >
-              Email Me
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/seraphinemichelle/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn secondary-btn"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href="https://github.com/seraphinemichelle"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn secondary-btn"
-            >
-              GitHub
-            </a>
+      <section id="contact" className="contact-section">
+        <div className="contact-inner">
+          <div className="section-topline light-line">
+            <span>06</span>
+            <span>CONTACT</span>
           </div>
+
+          <div className="contact-content">
+            <p className="small-label">LET&apos;S CONNECT</p>
+
+            <h2>
+              Let&apos;s make something
+              <br />
+              <em>interesting.</em>
+            </h2>
+
+            <p>
+              Open to internships, collaborations, and interesting projects.
+              Feel free to reach out.
+            </p>
+
+            <div className="contact-links">
+              <a
+                href="mailto:your.email@gmail.com"
+                className="contact-link"
+              >
+                <span>Email</span>
+                <span>↗</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-link"
+              >
+                <span>LinkedIn</span>
+                <span>↗</span>
+              </a>
+
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-link"
+              >
+                <span>GitHub</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <footer className="site-footer">
+            <span>© 2026 Seraphine Michelle Atmadjie</span>
+            <span>Built with Next.js</span>
+          </footer>
         </div>
       </section>
-
-      {/* ================= FOOTER ================= */}
-
-      <footer>
-        <p>
-          © 2026 Seraphine Michelle Atmadjie. Built with Next.js.
-        </p>
-      </footer>
     </main>
   );
 }
