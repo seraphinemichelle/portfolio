@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Header from "@/components/header";
 
 const projects = [
   {
@@ -95,87 +96,141 @@ const experiences = [
 
 const skills = [
   {
-    category: "PROGRAMMING",
-    items: ["Python", "Java", "SQL"],
-  },
-  {
+    name: "MySQL",
     category: "DATABASE",
-    items: ["MySQL", "Database Technology"],
+    icon: "https://cdn.simpleicons.org/mysql",
   },
   {
-    category: "DATA & AI",
-    items: ["Data Analysis", "Machine Learning", "Pandas", "Power BI"],
+    name: "Power BI",
+    category: "DATA",
+    icon: "https://cdn.simpleicons.org/powerbi",
   },
   {
-    category: "WEB & TOOLS",
-    items: ["React", "Django", "Tailwind CSS", "Git", "GitHub"],
+    name: "Tableau",
+    category: "DATA",
+    icon: "https://cdn.simpleicons.org/tableau",
+  },
+  {
+    name: "Pandas",
+    category: "DATA",
+    icon: "https://cdn.simpleicons.org/pandas",
+  },
+  {
+    name: "C++",
+    category: "PROGRAMMING",
+    icon: "https://cdn.simpleicons.org/cplusplus",
+  },
+  {
+    name: "Git",
+    category: "TOOLS",
+    icon: "https://cdn.simpleicons.org/git",
+  },
+  {
+    name: "Python",
+    category: "PROGRAMMING",
+    icon: "https://cdn.simpleicons.org/python",
+  },
+  {
+    name: "Figma",
+    category: "DESIGN",
+    icon: "https://cdn.simpleicons.org/figma",
+  },
+  {
+    name: "HTML",
+    category: "WEB",
+    icon: "https://cdn.simpleicons.org/html5",
+  },
+  {
+    name: "CSS",
+    category: "WEB",
+    icon: "https://cdn.simpleicons.org/css3",
+  },
+  {
+    name: "Java",
+    category: "PROGRAMMING",
+    icon: "https://cdn.simpleicons.org/openjdk",
+  },
+  {
+    name: "Django",
+    category: "WEB",
+    icon: "https://cdn.simpleicons.org/django",
   },
 ];
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeExperience, setActiveExperience] = useState(0);
+  const [activeExperience, setActiveExperience] =
+    useState(0);
 
-  const closeMenu = () => setMenuOpen(false);
+  const [activeSkill, setActiveSkill] =
+    useState<number | null>(null);
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const handleThemeChange = (event: Event) => {
+      const customEvent = event as CustomEvent<{
+        darkMode: boolean;
+      }>;
+
+      setDarkMode(customEvent.detail.darkMode);
+    };
+
+    window.addEventListener(
+      "theme-change",
+      handleThemeChange
+    );
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+    }
+
+    return () => {
+      window.removeEventListener(
+        "theme-change",
+        handleThemeChange
+      );
+    };
+  }, []);
 
   return (
     <main className={darkMode ? "dark-mode" : ""}>
-      {/* ================= NAVBAR ================= */}
 
-      <nav className="navbar">
-        <div className="nav-container">
-          <a href="#home" className="logo" onClick={closeMenu}>
-            <span className="logo-mark">S.</span>
-            <span className="logo-name">Seraphine Michelle Atmadjie</span>
-          </a>
+      {/* =====================================================
+          ANIMATED BACKGROUND
+      ===================================================== */}
 
-          <div className={`nav-links ${menuOpen ? "mobile-open" : ""}`}>
-            <a href="#home" onClick={closeMenu}>
-              Home
-            </a>
-            <a href="#about" onClick={closeMenu}>
-              About
-            </a>
-            <a href="#work" onClick={closeMenu}>
-              Work
-            </a>
-            <a href="#experience" onClick={closeMenu}>
-              Experience
-            </a>
-            <a href="#education" onClick={closeMenu}>
-              Education
-            </a>
-            <a href="#contact" onClick={closeMenu}>
-              Contact
-            </a>
-          </div>
+      <div
+        className="ambient-background"
+        aria-hidden="true"
+      >
+        <div className="ambient-grid"></div>
 
-          <div className="nav-actions">
-            <button
-              className="theme-toggle"
-              onClick={() => setDarkMode(!darkMode)}
-              aria-label="Toggle theme"
-            >
-              {darkMode ? "☼" : "☾"}
-            </button>
+        <div className="ambient-orb orb-one"></div>
+        <div className="ambient-orb orb-two"></div>
+        <div className="ambient-orb orb-three"></div>
+        <div className="ambient-orb orb-four"></div>
 
-            <button
-              className="menu-toggle"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? "×" : "☰"}
-            </button>
-          </div>
-        </div>
-      </nav>
+        <div className="ambient-ring ring-one"></div>
+        <div className="ambient-ring ring-two"></div>
+      </div>
 
-      {/* ================= HERO ================= */}
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
+
+      <Header />
+
+      {/* =====================================================
+          HERO
+      ===================================================== */}
 
       <section id="home" className="hero">
         <div className="hero-container">
+
           <div className="hero-copy">
+
             <div className="hero-label">
               <span className="status-dot"></span>
               COMPUTER SCIENCE STUDENT
@@ -189,23 +244,33 @@ export default function Home() {
             </h1>
 
             <p className="hero-intro">
-              Building with data, code, and curiosity. Currently exploring
-              database technology, software development, and data analytics.
+              Building with data, code, and curiosity.
+              Currently exploring database technology,
+              software development, and data analytics.
             </p>
 
             <div className="hero-links">
-              <a href="#work" className="text-link primary-link">
+              <a
+                href="#work"
+                className="text-link primary-link"
+              >
                 Explore my work <span>↗</span>
               </a>
 
-              <a href="#about" className="text-link">
+              <a
+                href="#about"
+                className="text-link"
+              >
                 More about me <span>↓</span>
               </a>
             </div>
+
           </div>
 
           <div className="hero-visual">
+
             <div className="hero-image-wrap">
+
               <div className="hero-image-bg"></div>
 
               <img
@@ -218,58 +283,81 @@ export default function Home() {
                 <span>BASED IN</span>
                 <strong>INDONESIA</strong>
               </div>
+
             </div>
 
             <div className="hero-decoration hero-decoration-one"></div>
+
             <div className="hero-decoration hero-decoration-two"></div>
+
           </div>
+
         </div>
 
         <div className="hero-bottom">
           <span>SCROLL TO EXPLORE</span>
+
           <div className="scroll-line"></div>
-          <span>01 — 06</span>
+
+          <span>01 — 05</span>
         </div>
       </section>
 
-      {/* ================= ABOUT ================= */}
+      {/* =====================================================
+          ABOUT
+      ===================================================== */}
 
-      <section id="about" className="section about-section">
+      <section
+        id="about"
+        className="section about-section"
+      >
         <div className="section-topline">
           <span>01</span>
           <span>ABOUT</span>
         </div>
 
         <div className="about-layout">
+
           <div className="section-title-block">
-            <p className="small-label">A LITTLE ABOUT ME</p>
+
+            <p className="small-label">
+              A LITTLE ABOUT ME
+            </p>
+
             <h2>
               Curious by nature,
               <br />
               <em>technical by choice.</em>
             </h2>
+
           </div>
 
           <div className="about-copy">
+
             <p className="large-copy">
-              I&apos;m a Computer Science student at BINUS University with an
-              interest in database technology, software development, data, and
-              technology.
+              I&apos;m a Computer Science student at
+              BINUS University with an interest in
+              database technology, software development,
+              data, and technology.
             </p>
 
             <p>
-              Throughout my academic journey, I&apos;ve worked on projects
-              across data analytics, machine learning, and web development,
-              while also gaining experience through tutoring, mentoring, and
-              organizational activities.
+              Throughout my academic journey, I&apos;ve
+              worked on projects across data analytics,
+              machine learning, and web development,
+              while also gaining experience through
+              tutoring, mentoring, and organizational
+              activities.
             </p>
 
             <p>
-              I enjoy learning new technologies, solving problems, and turning
-              ideas into practical projects.
+              I enjoy learning new technologies,
+              solving problems, and turning ideas into
+              practical projects.
             </p>
 
             <div className="about-meta">
+
               <div>
                 <span>EDUCATION</span>
                 <strong>BINUS University</strong>
@@ -281,41 +369,71 @@ export default function Home() {
               </div>
 
               <div>
-                <span>INTERESTS</span>
-                <strong>Database · Data · Software</strong>
+                <span>FOCUS</span>
+                <strong>
+                  Database · Data · Software
+                </strong>
               </div>
+
             </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ================= WORK / ARMORY ================= */}
+      {/* =====================================================
+          WORK
+      ===================================================== */}
 
-      <section id="work" className="section work-section">
+      <section
+        id="work"
+        className="section work-section"
+      >
         <div className="section-topline">
           <span>02</span>
           <span>SELECTED WORK</span>
         </div>
 
         <div className="work-heading">
+
           <div>
-            <p className="small-label">PROJECT ARCHIVE</p>
-            <h2>Things I&apos;ve built.</h2>
+
+            <p className="small-label">
+              PROJECT ARCHIVE
+            </p>
+
+            <h2>
+              Things I&apos;ve built.
+            </h2>
+
           </div>
 
           <p>
-            A collection of projects from my Computer Science journey,
-            spanning data analytics, machine learning, and web development.
+            A collection of projects from my Computer
+            Science journey, spanning data analytics,
+            machine learning, and web development.
           </p>
+
         </div>
 
         <div className="project-list">
+
           {projects.map((project) => (
-            <article className="project-row" key={project.number}>
-              <div className="project-index">{project.number}</div>
+            <article
+              className="project-row"
+              key={project.number}
+            >
+
+              <div className="project-index">
+                {project.number}
+              </div>
 
               <div className="project-info">
-                <p className="project-category">{project.category}</p>
+
+                <p className="project-category">
+                  {project.category}
+                </p>
 
                 <h3>{project.title}</h3>
 
@@ -324,9 +442,13 @@ export default function Home() {
                 </p>
 
                 <div className="project-tech">
+
                   {project.tech.map((item) => (
-                    <span key={item}>{item}</span>
+                    <span key={item}>
+                      {item}
+                    </span>
                   ))}
+
                 </div>
 
                 {project.website !== "#" ? (
@@ -343,27 +465,42 @@ export default function Home() {
                     Project archive <span>→</span>
                   </span>
                 )}
+
               </div>
 
               <div className="project-preview">
-                <img src={project.image} alt={project.title} />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                />
               </div>
+
             </article>
           ))}
+
         </div>
       </section>
 
-      {/* ================= EXPERIENCE ================= */}
+      {/* =====================================================
+          EXPERIENCE
+      ===================================================== */}
 
-      <section id="experience" className="section experience-section">
+      <section
+        id="experience"
+        className="section experience-section"
+      >
         <div className="section-topline">
           <span>03</span>
           <span>EXPERIENCE</span>
         </div>
 
         <div className="experience-layout">
+
           <div className="experience-intro">
-            <p className="small-label">MY JOURNEY</p>
+
+            <p className="small-label">
+              MY JOURNEY
+            </p>
 
             <h2>
               Learning through
@@ -372,158 +509,267 @@ export default function Home() {
             </h2>
 
             <p>
-              Experiences that have helped me grow academically,
-              professionally, and personally.
+              Experiences that have helped me grow
+              academically, professionally, and
+              personally.
             </p>
 
             <div className="experience-preview">
+
               <img
-                src={experiences[activeExperience].image}
-                alt={experiences[activeExperience].title}
+                src={
+                  experiences[activeExperience].image
+                }
+                alt={
+                  experiences[activeExperience].title
+                }
               />
 
               <div className="preview-overlay">
+
                 <span>SELECTED</span>
+
                 <strong>
-                  {String(activeExperience + 1).padStart(2, "0")}
+                  {String(
+                    activeExperience + 1
+                  ).padStart(2, "0")}
                 </strong>
+
               </div>
+
             </div>
+
           </div>
 
           <div className="experience-list">
-            {experiences.map((experience, index) => (
-              <div
-                className={`experience-item ${
-                  activeExperience === index ? "active" : ""
-                }`}
-                key={`${experience.title}-${experience.company}`}
-                onMouseEnter={() => setActiveExperience(index)}
-              >
-                <div className="experience-year">
-                  {experience.year}
-                </div>
 
-                <div className="experience-main">
-                  <div className="experience-title-line">
-                    <h3>{experience.title}</h3>
-                    <span>{experience.type}</span>
+            {experiences.map(
+              (experience, index) => (
+                <div
+                  className={`experience-item ${
+                    activeExperience === index
+                      ? "active"
+                      : ""
+                  }`}
+                  key={`${experience.title}-${experience.company}`}
+                  onMouseEnter={() =>
+                    setActiveExperience(index)
+                  }
+                >
+
+                  <div className="experience-year">
+                    {experience.year}
                   </div>
 
-                  <p className="experience-company">
-                    {experience.company}
-                  </p>
+                  <div className="experience-main">
 
-                  <p className="experience-description">
-                    {experience.description}
-                  </p>
-                </div>
+                    <div className="experience-title-line">
 
-                <div className="experience-number">
-                  {String(index + 1).padStart(2, "0")}
+                      <h3>
+                        {experience.title}
+                      </h3>
+
+                      <span>
+                        {experience.type}
+                      </span>
+
+                    </div>
+
+                    <p className="experience-company">
+                      {experience.company}
+                    </p>
+
+                    <p className="experience-description">
+                      {experience.description}
+                    </p>
+
+                  </div>
+
+                  <div className="experience-number">
+                    {String(index + 1).padStart(
+                      2,
+                      "0"
+                    )}
+                  </div>
+
                 </div>
-              </div>
-            ))}
+              )
+            )}
+
           </div>
+
         </div>
       </section>
 
-      {/* ================= EDUCATION ================= */}
+      {/* =====================================================
+          SKILLS
+      ===================================================== */}
 
-      <section id="education" className="section education-section">
+      <section
+        id="skills"
+        className="section skills-section"
+      >
+
         <div className="section-topline">
           <span>04</span>
-          <span>EDUCATION</span>
-        </div>
-
-        <div className="education-heading">
-          <p className="small-label">ACADEMIC BACKGROUND</p>
-          <h2>Where I&apos;ve learned.</h2>
-        </div>
-
-        <div className="education-list">
-          <div className="education-item">
-            <div className="education-number">01</div>
-
-            <div className="education-main">
-              <span>JUN 2024 — JUN 2028</span>
-              <h3>BINUS University</h3>
-              <h4>Bachelor&apos;s Degree, Computer Science</h4>
-              <p>
-                Undergraduate Computer Science student with interests in
-                database technology, software development, data, and
-                technology.
-              </p>
-            </div>
-
-            <div className="education-side">UNDERGRADUATE</div>
-          </div>
-
-          <div className="education-item">
-            <div className="education-number">02</div>
-
-            <div className="education-main">
-              <span>JUL 2021 — JUN 2024</span>
-              <h3>Saint John&apos;s Catholic School</h3>
-              <h4>High School Diploma, Science</h4>
-              <p>
-                Activities included Student Council and School Cup Fundraising
-                and Consumption Crew.
-              </p>
-            </div>
-
-            <div className="education-side">HIGH SCHOOL</div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= SKILLS ================= */}
-
-      <section className="section skills-section">
-        <div className="section-topline">
-          <span>05</span>
           <span>SKILLS & TOOLS</span>
         </div>
 
         <div className="skills-heading">
-          <p className="small-label">WHAT I WORK WITH</p>
+
+          <p className="small-label">
+            TECH STACK
+          </p>
+
           <h2>
-            Tools are just tools.
+            Tools I work
             <br />
-            <em>Curiosity does the work.</em>
+            <em>with.</em>
           </h2>
+
+          <p className="skills-intro">
+            A selection of technologies and tools
+            I&apos;ve worked with across database,
+            data analytics, programming, and web
+            development.
+          </p>
+
         </div>
 
-        <div className="skills-grid">
-          {skills.map((group, index) => (
-            <div className="skill-block" key={group.category}>
-              <div className="skill-number">
-                {String(index + 1).padStart(2, "0")}
-              </div>
-
-              <h3>{group.category}</h3>
-
-              <div className="skill-tags">
-                {group.items.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="skills-category-label">
+          <span>01</span>
+          <span>DATABASE & DATA</span>
         </div>
+
+        <div className="skills-logo-grid">
+
+          {skills.slice(0, 4).map(
+            (skill, index) => (
+              <button
+                className={`skill-card ${
+                  activeSkill === index
+                    ? "active"
+                    : ""
+                }`}
+                key={skill.name}
+                onClick={() =>
+                  setActiveSkill(
+                    activeSkill === index
+                      ? null
+                      : index
+                  )
+                }
+                aria-pressed={
+                  activeSkill === index
+                }
+                aria-label={`Select ${skill.name}`}
+              >
+
+                <div className="skill-icon-wrap">
+
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="skill-icon"
+                  />
+
+                </div>
+
+                <div className="skill-card-name">
+                  {activeSkill === index
+                    ? skill.name
+                    : ""}
+                </div>
+
+              </button>
+            )
+          )}
+
+        </div>
+
+        <div className="skills-category-label second-category">
+          <span>02</span>
+          <span>DEVELOPMENT & TOOLS</span>
+        </div>
+
+        <div className="skills-logo-grid">
+
+          {skills.slice(4).map(
+            (skill, index) => {
+              const realIndex = index + 4;
+
+              return (
+                <button
+                  className={`skill-card ${
+                    activeSkill === realIndex
+                      ? "active"
+                      : ""
+                  }`}
+                  key={skill.name}
+                  onClick={() =>
+                    setActiveSkill(
+                      activeSkill === realIndex
+                        ? null
+                        : realIndex
+                    )
+                  }
+                  aria-pressed={
+                    activeSkill === realIndex
+                  }
+                  aria-label={`Select ${skill.name}`}
+                >
+
+                  <div className="skill-icon-wrap">
+
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="skill-icon"
+                    />
+
+                  </div>
+
+                  <div className="skill-card-name">
+                    {activeSkill === realIndex
+                      ? skill.name
+                      : ""}
+                  </div>
+
+                </button>
+              );
+            }
+          )}
+
+        </div>
+
+        <div className="skills-hint">
+          <span>CLICK A LOGO</span>
+          <span>TO EXPLORE</span>
+        </div>
+
       </section>
 
-      {/* ================= CONTACT ================= */}
+      {/* =====================================================
+          CONTACT
+      ===================================================== */}
 
-      <section id="contact" className="contact-section">
+      <section
+        id="contact"
+        className="contact-section"
+      >
+
         <div className="contact-inner">
+
           <div className="section-topline light-line">
-            <span>06</span>
+            <span>05</span>
             <span>CONTACT</span>
           </div>
 
           <div className="contact-content">
-            <p className="small-label">LET&apos;S CONNECT</p>
+
+            <p className="small-label">
+              LET&apos;S CONNECT
+            </p>
 
             <h2>
               Let&apos;s make something
@@ -532,11 +778,13 @@ export default function Home() {
             </h2>
 
             <p>
-              Open to internships, collaborations, and interesting projects.
-              Feel free to reach out.
+              Open to internships, collaborations,
+              and interesting projects. Feel free to
+              reach out.
             </p>
 
             <div className="contact-links">
+
               <a
                 href="mailto:your.email@gmail.com"
                 className="contact-link"
@@ -564,15 +812,25 @@ export default function Home() {
                 <span>GitHub</span>
                 <span>↗</span>
               </a>
+
             </div>
+
           </div>
 
           <footer className="site-footer">
-            <span>© 2026 Seraphine Michelle Atmadjie</span>
-            <span>Built with Next.js</span>
+            <span>
+              © 2026 Seraphine Michelle Atmadjie
+            </span>
+
+            <span>
+              Built with Next.js
+            </span>
           </footer>
+
         </div>
+
       </section>
+
     </main>
   );
 }
