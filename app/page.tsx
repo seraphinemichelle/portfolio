@@ -98,42 +98,42 @@ const skills = [
   {
     name: "MySQL",
     category: "DATABASE",
-    icon: "https://cdn.simpleicons.org/mysql",
+    icon: "/skills/mysql.svg",
   },
   {
     name: "Power BI",
     category: "DATA",
-    icon: "https://cdn.simpleicons.org/powerbi",
+    icon: "/skills/powerbi.svg",
   },
   {
     name: "Tableau",
     category: "DATA",
-    icon: "https://cdn.simpleicons.org/tableau",
+    icon: "/skills/tableau.svg",
   },
   {
     name: "Pandas",
     category: "DATA",
-    icon: "https://cdn.simpleicons.org/pandas",
+    icon: "/skills/pandas.svg",
   },
   {
     name: "C++",
     category: "PROGRAMMING",
-    icon: "https://cdn.simpleicons.org/cplusplus",
+    icon: "/skills/c.svg",
   },
   {
     name: "Git",
     category: "TOOLS",
-    icon: "https://cdn.simpleicons.org/git",
+    icon: "/skills/git.svg",
   },
   {
     name: "Python",
     category: "PROGRAMMING",
-    icon: "https://cdn.simpleicons.org/python",
+    icon: "/skills/python.svg",
   },
   {
     name: "Figma",
     category: "DESIGN",
-    icon: "https://cdn.simpleicons.org/figma",
+    icon: "/skills/figma.svg",
   },
   {
     name: "HTML",
@@ -143,12 +143,17 @@ const skills = [
   {
     name: "CSS",
     category: "WEB",
-    icon: "https://cdn.simpleicons.org/css3",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+  },
+  {
+    name: "Javascript",
+    category: "WEB",
+    icon: "https://cdn.simpleicons.org/javascript",
   },
   {
     name: "Java",
     category: "PROGRAMMING",
-    icon: "https://cdn.simpleicons.org/openjdk",
+    icon: "/skills/java.svg",
   },
   {
     name: "Django",
@@ -158,12 +163,7 @@ const skills = [
 ];
 
 export default function Home() {
-  const [activeExperience, setActiveExperience] =
-    useState(0);
-
-  const [activeSkill, setActiveSkill] =
-    useState<number | null>(null);
-
+  const [activeExperience, setActiveExperience] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -250,6 +250,7 @@ export default function Home() {
             </p>
 
             <div className="hero-links">
+
               <a
                 href="#work"
                 className="text-link primary-link"
@@ -263,6 +264,7 @@ export default function Home() {
               >
                 More about me <span>↓</span>
               </a>
+
             </div>
 
           </div>
@@ -469,10 +471,12 @@ export default function Home() {
               </div>
 
               <div className="project-preview">
+
                 <img
                   src={project.image}
                   alt={project.title}
                 />
+
               </div>
 
             </article>
@@ -489,6 +493,7 @@ export default function Home() {
         id="experience"
         className="section experience-section"
       >
+
         <div className="section-topline">
           <span>03</span>
           <span>EXPERIENCE</span>
@@ -636,115 +641,28 @@ export default function Home() {
 
         </div>
 
-        <div className="skills-category-label">
-          <span>01</span>
-          <span>DATABASE & DATA</span>
-        </div>
-
         <div className="skills-logo-grid">
 
-          {skills.slice(0, 4).map(
-            (skill, index) => (
-              <button
-                className={`skill-card ${
-                  activeSkill === index
-                    ? "active"
-                    : ""
-                }`}
-                key={skill.name}
-                onClick={() =>
-                  setActiveSkill(
-                    activeSkill === index
-                      ? null
-                      : index
-                  )
-                }
-                aria-pressed={
-                  activeSkill === index
-                }
-                aria-label={`Select ${skill.name}`}
-              >
+          {skills.map((skill) => (
+            <div
+              className="skill-card"
+              key={skill.name}
+              data-skill={skill.name}
+            >
 
-                <div className="skill-icon-wrap">
+              <div className="skill-icon-wrap">
 
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="skill-icon"
-                  />
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="skill-icon"
+                />
 
-                </div>
+              </div>
 
-                <div className="skill-card-name">
-                  {activeSkill === index
-                    ? skill.name
-                    : ""}
-                </div>
+            </div>
+          ))}
 
-              </button>
-            )
-          )}
-
-        </div>
-
-        <div className="skills-category-label second-category">
-          <span>02</span>
-          <span>DEVELOPMENT & TOOLS</span>
-        </div>
-
-        <div className="skills-logo-grid">
-
-          {skills.slice(4).map(
-            (skill, index) => {
-              const realIndex = index + 4;
-
-              return (
-                <button
-                  className={`skill-card ${
-                    activeSkill === realIndex
-                      ? "active"
-                      : ""
-                  }`}
-                  key={skill.name}
-                  onClick={() =>
-                    setActiveSkill(
-                      activeSkill === realIndex
-                        ? null
-                        : realIndex
-                    )
-                  }
-                  aria-pressed={
-                    activeSkill === realIndex
-                  }
-                  aria-label={`Select ${skill.name}`}
-                >
-
-                  <div className="skill-icon-wrap">
-
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="skill-icon"
-                    />
-
-                  </div>
-
-                  <div className="skill-card-name">
-                    {activeSkill === realIndex
-                      ? skill.name
-                      : ""}
-                  </div>
-
-                </button>
-              );
-            }
-          )}
-
-        </div>
-
-        <div className="skills-hint">
-          <span>CLICK A LOGO</span>
-          <span>TO EXPLORE</span>
         </div>
 
       </section>
@@ -818,6 +736,7 @@ export default function Home() {
           </div>
 
           <footer className="site-footer">
+
             <span>
               © 2026 Seraphine Michelle Atmadjie
             </span>
@@ -825,6 +744,7 @@ export default function Home() {
             <span>
               Built with Next.js
             </span>
+
           </footer>
 
         </div>
