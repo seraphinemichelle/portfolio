@@ -7,7 +7,7 @@ const navItems = [
   { label: "About", href: "#about", icon: "○" },
   { label: "Work", href: "#work", icon: "▦" },
   { label: "Experience", href: "#experience", icon: "◇" },
-  { label: "Skills", href: "#skills", icon: "✦" },
+  { label: "Tech Stack", href: "#skills", icon: "✦" },
   { label: "Contact", href: "#contact", icon: "↗" },
 ];
 

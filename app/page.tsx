@@ -38,11 +38,11 @@ const projects = [
     number: "04",
     title: "E-Commerce Customer Churn Report",
     category: "DATA ANALYTICS",
-    image: "/project/churn-dashboard.png",
+    image: "/project/report.png",
     description:
       "A data analytics report exploring customer churn patterns, engagement behavior, and purchasing activity.",
     tech: ["Power BI", "Python", "Data Analysis"],
-    website: "#",
+    website: "https://www.overleaf.com/read/gtkwqzpcttyj#b6c893",
   },
 ];
 
