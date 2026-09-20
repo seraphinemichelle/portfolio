@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Seraphine Michelle Atmadjie — Portfolio
 
-## Getting Started
+Personal portfolio site built with Next.js App Router, showcasing projects,
+experience, and skills as a Computer Science student.
 
-First, run the development server:
+## Tech stack
+
+- Next.js 16 (App Router)
+- React 19 + TypeScript
+- Plain CSS with light/dark theme
+- Next Font (Geist / Geist Mono)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` to view the site locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+app/
+  layout.tsx
+  page.tsx
+  globals.css
 
-## Learn More
+components/
+  layout/
+    Header.tsx
+    PageShell.tsx
+    AmbientBackground.tsx
+  sections/
+    Hero.tsx
+    About.tsx
+    Work.tsx
+    Experience.tsx
+    Skills.tsx
+    Contact.tsx
+  ui/
+    SectionHeading.tsx
 
-To learn more about Next.js, take a look at the following resources:
+context/
+  theme-context.tsx
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+data/
+  profile.ts
+  nav.ts
+  projects.ts
+  experience.ts
+  skills.ts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+public/
+  experience/
+  project/
+  skills/
+```
 
-## Deploy on Vercel
+The page is split into reusable section components, while editable portfolio
+content is kept in `data/`. This keeps the structure cleaner without changing
+the portfolio content or visual design.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content and assets
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The original portfolio content is preserved. Two image paths referenced by the
+original content are not present in the supplied source archive:
+
+- `/project/churn-dashboard.png`
+- `/experience/academic-tutor.jpeg`
+
+Add those files to the matching `public/` folders when available.
+
+## Deploy
+
+The project can be deployed normally to Vercel:
+
+```bash
+npm run build
+```
