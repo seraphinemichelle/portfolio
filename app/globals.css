@@ -796,7 +796,7 @@ main {
 }
 
 .work-heading h2 {
-  font-size: clamp(40px, 4.5vw, 66px);
+  font-size: clamp(40px, 4vw, 60px);
   line-height: 1.05;
   letter-spacing: -2.8px;
   font-weight: 500;
