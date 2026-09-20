@@ -21,7 +21,7 @@ export default function About() {
             <div className="about-image-bg" />
 
             <img
-              src="/profile.jpg"
+              src="/profile.JPG"
               alt="Seraphine Michelle Atmadjie"
               className="about-image"
             />
