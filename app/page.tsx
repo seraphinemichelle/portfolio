@@ -276,7 +276,7 @@ export default function Home() {
               <div className="hero-image-bg"></div>
 
               <img
-                src="/profile.jpg"
+                src="/profile.JPG"
                 alt="Seraphine Michelle Atmadjie"
                 className="hero-image"
               />
