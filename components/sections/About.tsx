@@ -28,7 +28,7 @@ export default function About() {
 
             <div className="about-image-caption">
               <span>BASED IN</span>
-              <strong>Indonesia</strong>
+              <strong>Jakarta, Indonesia</strong>
             </div>
           </div>
         </div>

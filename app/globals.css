@@ -30,6 +30,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =========================================================
+   SCROLL OFFSET
+========================================================= */
+
+#about,
+#work,
+#experience,
+#skills,
+#contact {
+  scroll-margin-top: -35px;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   background: var(--bg);
