@@ -14,7 +14,7 @@ export const projects: Project[] = [
     number: "01",
     title: "E-Commerce Customer Churn Dashboard",
     category: "DATA VISUALIZATION",
-    filter: "Data Analytics",
+    filter: "Database",
     image: "/project/tableau-dashboard.png",
     description:
       "An interactive dashboard analyzing customer churn behavior and identifying patterns related to engagement and purchasing activity.",
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     number: "04",
     title: "E-Commerce Customer Churn Report",
     category: "DATA ANALYTICS",
-    filter: "Data Analytics",
+    filter: "Database",
     image: "/project/report.png",
     description:
       "A data analytics report exploring customer churn patterns, engagement behavior, and purchasing activity.",
