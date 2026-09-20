@@ -30,7 +30,6 @@ export default function Experience() {
           <div className="experience-preview">
             <img src={active.image} alt={active.title} />
             <div className="preview-overlay">
-              <span>SELECTED</span>
               <strong>{String(activeExperience + 1).padStart(2, "0")}</strong>
             </div>
           </div>
