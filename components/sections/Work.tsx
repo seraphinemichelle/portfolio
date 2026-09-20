@@ -79,13 +79,17 @@ export default function Work() {
       {/* PROJECT LIST */}
       <div className="project-list">
         {filteredProjects.map(
-          (project) => (
+          (project, index) => (
             <article
               className="project-row"
               key={project.number}
             >
+              {/* NUMBER SESUAI HASIL FILTER */}
               <div className="project-index">
-                {project.number}
+                {String(index + 1).padStart(
+                  2,
+                  "0"
+                )}
               </div>
 
               <div className="project-info">
