@@ -70,7 +70,7 @@ export default function About() {
             <div>
               <span>FOCUS</span>
               <strong>
-                Database · Data · Software
+                Database · Software
               </strong>
             </div>
           </div>
