@@ -1163,6 +1163,24 @@ main {
   margin-bottom: 60px;
 }
 
+.skills-heading .small-label {
+  margin-bottom: 18px;
+}
+
+.skills-heading h2 {
+  font-size: clamp(40px, 4vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+  font-weight: 500;
+}
+
+.skills-heading h2 em {
+  color: var(--accent);
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
 .skills-intro {
   max-width: 480px;
   margin-top: 25px;
@@ -1213,7 +1231,10 @@ main {
   object-fit: contain;
   filter: grayscale(1);
   opacity: 0.5;
-  transition: filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    filter 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .skill-card:hover .skill-icon {

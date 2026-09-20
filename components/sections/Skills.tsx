@@ -10,9 +10,7 @@ export default function Skills() {
         <p className="small-label">TECH STACK</p>
 
         <h2>
-          Tools I work
-          <br />
-          <em>with.</em>
+          Tools I work <em>with.</em>
         </h2>
 
         <p className="skills-intro">
