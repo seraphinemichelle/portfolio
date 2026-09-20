@@ -7,7 +7,7 @@ import { projects } from "@/data/projects";
 
 const filters = [
   "All",
-  "Data Analytics",
+  "Database",
   "Web",
   "AI",
 ];

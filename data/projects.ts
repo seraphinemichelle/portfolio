@@ -13,13 +13,13 @@ export const projects: Project[] = [
   {
     number: "01",
     title: "E-Commerce Customer Churn Dashboard",
-    category: "DATA ANALYTICS",
+    category: "DATA VISUALIZATION",
     filter: "Data Analytics",
-    image: "/project/churn-dashboard.png",
+    image: "/project/tableau-dashboard.png",
     description:
       "An interactive dashboard analyzing customer churn behavior and identifying patterns related to engagement and purchasing activity.",
-    tech: ["Tableau", "Python", "Data Analysis"],
-    website: "#",
+    tech: ["Tableau", "Python", "Data Visualization"],
+    website: "https://public.tableau.com/views/DataVisualizationFinalProjectDashboard/E-CommerceCustomerChurnDashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
   },
   {
     number: "02",
