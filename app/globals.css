@@ -1269,6 +1269,13 @@ a.project-arrow:hover span {
     transform 0.2s ease;
 }
 
+/* Django wordmark visual adjustment */
+.skill-card[data-skill="Django"] .skill-icon {
+  width: 68px;
+  height: 42px;
+  max-width: none;
+}
+
 .skill-card:hover .skill-icon {
   filter: grayscale(0);
   opacity: 1;
