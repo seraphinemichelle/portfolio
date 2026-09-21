@@ -444,20 +444,6 @@ main {
   color: var(--text-soft);
 }
 
-.hero-bottom {
-  width: 100%;
-  margin-top: auto;
-  padding-top: 55px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 20px;
-  color: var(--text-muted);
-  font-family: "DM Mono", monospace;
-  font-size: 8px;
-  letter-spacing: 1.2px;
-}
-
 .scroll-line {
   height: 1px;
   background: var(--line);
@@ -1150,6 +1136,13 @@ a.project-arrow:hover span {
     filter 0.2s ease,
     opacity 0.2s ease,
     transform 0.2s ease;
+}
+
+/* khusus Django karena logonya horizontal */
+.skill-card[data-skill="Django"] .skill-icon {
+  width: 68px;
+  height: 42px;
+  max-width: none;
 }
 
 .skill-card:hover .skill-icon {
@@ -1948,10 +1941,6 @@ a.project-arrow:hover span {
   .hero-links {
     flex-direction: column;
     gap: 18px;
-  }
-
-  .hero-bottom {
-    display: none;
   }
 
   .section-topline {

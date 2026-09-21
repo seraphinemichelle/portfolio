@@ -10,9 +10,8 @@ export default function Hero() {
           </h1>
 
           <p className="hero-intro">
-            Computer Science student with an interest in
-            database technology, software development, and
-            data analytics. I enjoy turning ideas and data
+            Computer Science undergraduate with an interest in
+            data analytics, data science, and software development. I enjoy turning ideas and data
             into structured, useful, and meaningful digital
             solutions.
           </p>
@@ -35,14 +34,6 @@ export default function Hero() {
             </a>
           </div>
         </div>
-      </div>
-
-      <div className="hero-bottom">
-        <span>SCROLL TO EXPLORE</span>
-
-        <div className="scroll-line" />
-
-        <span>01 — 05</span>
       </div>
     </section>
   );

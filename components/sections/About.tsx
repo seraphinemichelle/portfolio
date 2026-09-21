@@ -44,10 +44,10 @@ export default function About() {
 
           <p>
             Throughout my academic journey, I&apos;ve worked
-            on projects across data analytics, machine
-            learning, and web development, while also gaining
-            experience through tutoring, mentoring, and
-            organizational activities.
+            on projects across data analytics, data visualization, 
+            data engineering, machine learning, and web development,
+            while also gaining experience through tutoring, mentoring,
+            and organizational activities.
           </p>
 
           <p>
