@@ -16,7 +16,7 @@ export const skills: Skill[] = [
   { name: "Figma", category: "DESIGN", icon: "/skills/figma.svg" },
   { name: "HTML", category: "WEB", icon: "/skills/html.svg" },
   { name: "CSS", category: "WEB", icon: "/skills/css.svg" },
-  { name: "Javascript", category: "WEB", icon: "/skills/c\javascript.svg" },
+  { name: "Javascript", category: "WEB", icon: "/skills/javascript.svg" },
   { name: "Java", category: "PROGRAMMING", icon: "/skills/java.svg" },
   { name: "Django", category: "WEB", icon: "/skills/django.svg" },
 ];
