@@ -14,7 +14,7 @@ export const projects: Project[] = [
     number: "01",
     title: "E-Commerce Customer Churn Dashboard",
     category: "DATA VISUALIZATION",
-    filter: "Database",
+    filter: "Data",
     image: "/project/tableau-dashboard.png",
     description:
       "An interactive dashboard analyzing customer churn behavior and identifying patterns related to engagement and purchasing activity.",
@@ -46,12 +46,23 @@ export const projects: Project[] = [
   {
     number: "04",
     title: "E-Commerce Customer Churn Report",
-    category: "DATA ANALYTICS",
-    filter: "Database",
+    category: "DATA SCIENCE",
+    filter: "Data",
     image: "/project/report.png",
     description:
       "A data analytics report exploring customer churn patterns, engagement behavior, and purchasing activity.",
-    tech: ["Python", "Data Analysis", "Machine Learning", "LaTeX"],
+    tech: ["Python", "Data Analysis", "Data Science", "Machine Learning", "LaTeX"],
     website: "https://www.overleaf.com/read/gtkwqzpcttyj#b6c893",
+  },
+  {
+    number: "05",
+    title: "Global Layoff Dashboard",
+    category: "DATA ANALYTICS",
+    filter: "Data",
+    image: "/project/powerbi.png",
+    description:
+      "A Power BI analytics dashboard examining global layoff data across industries, companies, countries, and time periods, with interactive filters and key workforce impact metrics.",
+    tech: ["Power BI", "Data Analysis", "Data Visualization"],
+    website: "https://app.powerbi.com/view?r=eyJrIjoiNmY2YTU1MGItN2NlMy00NWViLTkwZjQtY2JiZGQxZDRkMDg0IiwidCI6IjM0ODViOTYzLTgyYmEtNGE2Zi04MTBmLWI1Y2MyMjZmZjg5OCIsImMiOjEwfQ%3D%3D",
   },
 ];
