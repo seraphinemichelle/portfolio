@@ -40,7 +40,7 @@ export const experiences: Experience[] = [
     title: "Academic Tutor",
     company: "Algo Bootcamp",
     type: "Part-time",
-    image: "/experience/academic-tutor.jpeg",
+    image: "/experience/boothcamp.png",
     description:
       "Provided online Linear Algebra tutoring for 30+ incoming Computer Science students and prepared learning materials and practice questions.",
   },
