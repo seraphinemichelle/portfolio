@@ -4,9 +4,11 @@ export async function getExperiences() {
     .from("experiences")
     .select("*")
     .order("id");
+
   if (error) {
     console.log(error);
     return [];
   }
-  return data;
+
+  return data ?? [];
 }
