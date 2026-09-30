@@ -943,32 +943,7 @@ a.project-arrow:hover span {
   border-radius: 18px;
 }
 
-.preview-overlay {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 14px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(transparent, rgba(4, 15, 30, 0.78));
-  color: white;
-}
 
-.preview-overlay span,
-.preview-overlay strong {
-  font-family: "DM Mono", monospace;
-}
-
-.preview-overlay span {
-  font-size: 8px;
-  letter-spacing: 1px;
-}
-
-.preview-overlay strong {
-  font-size: 10px;
-}
 
 .experience-list {
   border-top: 1px solid var(--line);

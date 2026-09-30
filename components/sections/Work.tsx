@@ -1,9 +1,20 @@
 "use client";
 
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/lib/projects";
+
+type Project = {
+  id: number;
+  number: string;
+  title: string;
+  category: string;
+  filter: string;
+  image: string;
+  description: string;
+  tech: string[];
+  website: string;
+};
 
 const filters = [
   "All",
@@ -13,18 +24,27 @@ const filters = [
 ];
 
 export default function Work() {
+  const [projects, setProjects] = useState<Project[]>([]);
   const [activeFilter, setActiveFilter] =
     useState("All");
+
+  // AMBIL DATA DARI SUPABASE
+  useEffect(() => {
+    getProjects()
+      .then((data) => {
+        setProjects(data);
+      });
+  }, []);
 
   const filteredProjects = projects.filter(
     (project) => {
       if (activeFilter === "All") {
         return true;
       }
-
       return project.filter === activeFilter;
     }
   );
+
 
   return (
     <section
@@ -35,19 +55,16 @@ export default function Work() {
         number="02"
         label="SELECTED WORK"
       />
-
       <div className="work-heading">
         <div>
           <p className="small-label">
             PROJECT ARCHIVE
           </p>
-
           <h2>
             Things I&apos;ve{" "}
             <em>built.</em>
           </h2>
         </div>
-
         <p>
           A collection of projects from my
           Computer Science journey, spanning
@@ -80,68 +97,64 @@ export default function Work() {
       <div className="project-list">
         {filteredProjects.map(
           (project, index) => (
-            <article
-              className="project-row"
-              key={project.number}
-            >
-              {/* NUMBER SESUAI HASIL FILTER */}
-              <div className="project-index">
-                {String(index + 1).padStart(
-                  2,
-                  "0"
+          <article
+            className="project-row"
+            key={project.id}
+          >
+            <div className="project-index">
+              {String(index + 1).padStart(
+                2,
+                "0"
+              )}
+            </div>
+            <div className="project-info">
+              <p className="project-category">
+                {project.category}
+              </p>
+              <h3>
+                {project.title}
+              </h3>
+              <p className="project-description">
+                {project.description}
+              </p>
+              <div className="project-tech">
+                {project.tech.map(
+                  (item) => (
+                    <span key={item}>
+                      {item}
+                    </span>
+                  )
                 )}
               </div>
-
-              <div className="project-info">
-                <p className="project-category">
-                  {project.category}
-                </p>
-
-                <h3>
-                  {project.title}
-                </h3>
-
-                <p className="project-description">
-                  {project.description}
-                </p>
-
-                <div className="project-tech">
-                  {project.tech.map(
-                    (item) => (
-                      <span key={item}>
-                        {item}
-                      </span>
-                    )
-                  )}
-                </div>
-
-                {project.website !== "#" ? (
-                  <a
-                    href={project.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-arrow"
-                  >
-                    View project
-                    <span>↗</span>
-                  </a>
-                ) : (
-                  <span className="project-arrow muted">
-                    Project archive
-                    <span>→</span>
+              {project.website !== "#" ? (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-arrow"
+                >
+                  View project
+                  <span>
+                    ↗
                   </span>
-                )}
-              </div>
-
-              <div className="project-preview">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                />
-              </div>
-            </article>
-          )
-        )}
+                </a>
+              ) : (
+                <span className="project-arrow muted">
+                  Project archive
+                  <span>
+                    →
+                  </span>
+                </span>
+              )}
+            </div>
+            <div className="project-preview">
+              <img
+                src={project.image}
+                alt={project.title}
+              />
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
